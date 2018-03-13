@@ -6,9 +6,9 @@ let browser;
 const TRAVIS = 'TRAVIS' in process.env && 'CI' in process.env;
 
 before(async function () {
-  browser = await puppeteer.launch(TRAVIS ? {
+  browser = await puppeteer.launch({
     args: ['--no-sandbox'],
-  } : undefined);
+  });
   global.tab = await browser.newPage();
 });
 
